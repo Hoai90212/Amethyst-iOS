@@ -167,14 +167,6 @@ static GameSurfaceView* pojavWindow;
     self.longPressTwoGesture.delegate = self;
     [self.touchView addGestureRecognizer:self.longPressTwoGesture];
 
-    self.scrollPanGesture = [[UIPanGestureRecognizer alloc]
-        initWithTarget:self action:@selector(surfaceOnTouchesScroll:)];
-    self.scrollPanGesture.allowedTouchTypes = @[@(UITouchTypeDirect)];
-    self.scrollPanGesture.delegate = self;
-    self.scrollPanGesture.minimumNumberOfTouches = 2;
-    self.scrollPanGesture.maximumNumberOfTouches = 2;
-    [self.touchView addGestureRecognizer:self.scrollPanGesture];
-
     // Virtual mouse
     virtualMouseEnabled = getPrefBool(@"control.virtmouse_enable");
     virtualMouseFrame = CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 18, 27);
